@@ -1,4 +1,4 @@
-# Selenium QA Automation Framework
+# Selenium + Pytest + Requests Automation Framework
 
 ## Project Overview
 This project is an automated test framework built using Selenium and pytest.
@@ -19,9 +19,31 @@ The goal of this project is to demonstrate:
 
 - Python
 - Selenium WebDriver
+- Pytest
+- Requests (API Testing)
 - Page Object Model (POM)
+- Pytest Parametrize (Data-Driven Testing)
 - Git & GitHub
+ Addtional:
+ - Explicit Waits (WebDriverWait, ExpectedConditions)
+ - JSON Validation
+ - REST API Testing
+ - VS Code
 
+---
+
+## UI Automation 
+- Selenium
+- Page Object Model
+- Data-driven testing
+
+---
+
+## API Automation
+- Requests library
+- Parametrize login tests
+- JSON response validation
+- API client abstraction layer
 ---
 
 ## Test Coverage 

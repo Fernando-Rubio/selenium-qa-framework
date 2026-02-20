@@ -24,11 +24,16 @@ The goal of this project is to demonstrate:
 - Page Object Model (POM)
 - Pytest Parametrize (Data-Driven Testing)
 - Git & GitHub
+ - pytest-html (Test Reporting)
+ - Python logging module
  Addtional:
  - Explicit Waits (WebDriverWait, ExpectedConditions)
  - JSON Validation
  - REST API Testing
  - VS Code
+ - HTML test reporting
+ - Environment-based configuration
+ - Structured logging
 
 ---
 

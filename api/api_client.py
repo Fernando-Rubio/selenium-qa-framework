@@ -9,7 +9,6 @@ class APIClient():
     
     def login(self, username, password):
         self.logger.info(f"Attempting login for user: {username}")
-        return requests.post(f"{self.base_url}/auth/login", json={"username": username, "password": password})
-    
+        response = requests.post(f"{self.base_url}/auth/login",json={"username": username, "password": password})
         self.logger.info(f"Response Status: {response.status_code}")
-        return response 
+        return response

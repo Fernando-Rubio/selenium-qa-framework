@@ -5,3 +5,4 @@ venv/
 .idea/
 .DS_Store
 .pytest_cache/
+report.html

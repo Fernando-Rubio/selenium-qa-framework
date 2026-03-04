@@ -15,3 +15,13 @@ class BasePage:
     def get_text(self, locator):
         element = self.wait.until(EC.visibility_of_element_located(locator))
         return element.text
+    def scroll_to_element(self, locator):
+        element = self.driver.find_element(*locator)
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+    def is_visible(self, locator):
+        try:
+            WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(locator))
+            return True
+        except:
+            return False

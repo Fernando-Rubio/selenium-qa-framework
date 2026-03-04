@@ -12,7 +12,6 @@ def driver():
     options.add_argument("--disable-features=PasswordCheck")
 
     driver = webdriver.Chrome(options=options)
-    driver.get("https://www.saucedemo.com/")
 
     yield driver
     driver.quit()

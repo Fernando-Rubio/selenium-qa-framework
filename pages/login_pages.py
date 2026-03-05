@@ -3,6 +3,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 
 class LoginPage(BasePage):
+    URL = "https://www.saucedemo.com"
+    def open(self):
+        super().open(self.URL)
+
     USERNAME = (By.ID, "user-name")
     PASSWORD = (By. ID, "password")
     LOGIN_BUTTON = (By.ID, "login-button")

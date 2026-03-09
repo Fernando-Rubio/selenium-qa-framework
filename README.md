@@ -1,19 +1,42 @@
 # Selenium + Pytest + Requests Automation Framework
 
 ## Project Overview
-This project is an automated test framework built using Selenium and pytest.
 
-The framework tests core functionality of the SauceDemo web application:
-https://www.saucedemo.com/ 
+This project is a scalable UI and API automation framework built using Selenium, Pytest, and Python.
+
+The framework follows the Page Object Model (POM) design pattern to seperate test logic from page elements, improving maintainability and readability.
+
+The framework automates core functionality across multiple test applications such as: 
+
+- SauceDemo
+- OrangeHRM
+- DemoQA
+- HerokuApp
 
 The goal of this project is to demonstrate:
-- Page Object Model (POM) structure 
-- Explicit waits implementation
+
+- Clean automation framework architecture
+- Reusable test components
+- Reliable element handling using explicit waits
 - Positive and negative test coverage 
-- Clean framework design
-- Git version control workflow
+- API testing integration
+- Logging and failure debugging tools
 
 ---
+
+## Framework Features 
+- Page Object Model (POM) design pattern
+- Reusable BasePage class for common Selenium actions
+- Explicit waits for reliable element interaction
+- Pytest fixtures for browser setup and teardown
+- Data-driven testing using pytest parametrize
+- Screenshot capture on test failures 
+- Structured logging for debugging
+- HTML test reporting using pytest-html
+- API testing using Python Requests
+- Enviorment-based configuration
+
+--- 
 
 ## Tech Stack
 
@@ -37,18 +60,22 @@ The goal of this project is to demonstrate:
 
 ---
 
-## UI Automation 
-- Selenium
-- Page Object Model
-- Data-driven testing
+## Example Automated Tests
 
----
+UI Tests
+- Login functionality
+- Invalid login scenarios
+- Add item to cart
+- Navigation validation
 
-## API Automation
+API Tests
 - Requests library
 - Parametrize login tests
 - JSON response validation
 - API client abstraction layer
+- GET request validation
+- response status verification
+
 ---
 
 ## Test Coverage 
@@ -63,10 +90,17 @@ Current automated scenarios include:
 ---
 
 ## Project Structure
-Pages/ -> Page classes (POM)
+
+qa_project/
+
+pages/ -> Page Object classes
 tests/ -> Test cases
-conftest.py -> Pytest fixtures
-helpers.py -> Reusable methods
+api/ -> API client tests
+utils/ -> Helper utilities
+config/ -> Environment settings
+screenshots/ -> Failure screenshots
+conftest.py/ -> Pytest fixtures
+pytest.ini/ -> Pytest configuration
 
 ---
 
@@ -82,6 +116,9 @@ pip install -r requirements.txt
 
 4. Run tests:
 pytest -v
+
+5. Generate HTML report:
+pytest --html=report.html
 
 ---
 

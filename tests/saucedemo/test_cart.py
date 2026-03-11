@@ -1,5 +1,5 @@
-from pages.login_pages import LoginPage
-from pages.inventory_page import InventoryPage
+from pages.saucedemo.login_page import LoginPage
+from pages.saucedemo.inventory_page import InventoryPage
 
 def test_add_to_cart(driver):
     login_page = LoginPage(driver)

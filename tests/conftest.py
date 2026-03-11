@@ -3,8 +3,10 @@ from datetime import datetime
 import pytest
 import os
 
+
 @pytest.fixture
 def driver():
+    driver = webdriver.Chrome()
     options = webdriver.ChromeOptions()
     options.add_experimental_option("prefs", {"credentials_enable_service": False, "profile.password_manager_enable": False, "profile.password_manager_leak_detection": False},)
     options.add_argument("--disable-notifications")

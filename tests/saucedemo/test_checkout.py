@@ -1,12 +1,12 @@
-from pages.login_pages import LoginPage
-from pages.inventory_page import InventoryPage
-from pages.cart_page import CartPage
-from pages.checkout_page import CheckoutPage
+from pages.saucedemo.login_page import LoginPage
+from pages.saucedemo.inventory_page import InventoryPage
+from pages.saucedemo.cart_page import CartPage
+from pages.saucedemo.checkout_page import CheckoutPage
 
 def test_complete_checkout(driver):
-    login = LoginPage(driver)
-    login.login("standard_user", "secret_sauce")
-
+    login_page = LoginPage(driver)
+    login_page.open()
+    login_page.login("standard_user", "secret_sauce")
     inventory = InventoryPage(driver)
     inventory.add_backpack()
     inventory.open_cart()

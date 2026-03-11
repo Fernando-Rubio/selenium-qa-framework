@@ -1,4 +1,5 @@
 from pages.demoqa.practice_form_page import PracticeFormPage
+import pytest
 
 def test_submit_form_success(driver):
     page = PracticeFormPage(driver)

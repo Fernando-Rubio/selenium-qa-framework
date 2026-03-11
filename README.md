@@ -118,12 +118,4 @@ pip install -r requirements.txt
 pytest -v
 
 5. Generate HTML report:
-pytest --html=report.html
-
----
-
-## Future Improvements 
-- Data-driven testing 
-- API validation tests
-- HTML reporting
-- CI/CD integration
+pytest --html=report.html 

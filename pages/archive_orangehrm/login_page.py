@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from selenium.webdriver.support import expected_conditions as EC
 
 class OrangeHRMLoginPage(BasePage):
     USERNAME = (By.NAME, "username")
@@ -8,6 +9,7 @@ class OrangeHRMLoginPage(BasePage):
 
     def open(self):
         self.driver.get("https://opensource-demo.orangehrmlive.com/")
+        self.wait.until(EC.visibility_of_element_located(self.USERNAME))
 
     def login(self, username, password):
         self.type(self.USERNAME, username)

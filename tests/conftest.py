@@ -6,23 +6,21 @@ import os
 
 @pytest.fixture
 def driver():
-    optons = webdriver.ChromeOptions()
+    options = webdriver.ChromeOptions()
 
-    optons.add_experimental_option("prefs", {"credentials_enable_service": False, "profile.password_manager_enabled": False})
+    options.add_argument("--headless=new")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
 
-    optons.add_argument("--disable-notifications")
-    optons.add_argument("--disable-infobars")
-    optons.add_argument("--disable-save-password-bubble")
-    optons.add_argument("--disable-features=PasswordLeakDetection")
-    optons.add_argument("--disable-features=PasswordCheck")
+    options.add_experimental_option("prefs", {"credentials_enable_service": False, "profile.password_manager_enabled": False})
 
-    optons.add_argument("--headless")
-    optons.add_argument("--no-sandbox")
-    optons.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-notifications")
+    options.add_argument("--disable-infobars")
+    options.add_argument("--disable-save-password-bubble")
+    options.add_argument("--disable-features=PasswordLeakDetection")
+    options.add_argument("--disable-features=PasswordCheck")
 
-    driver = webdriver.Chrome(options=optons)
-
-    driver.maximize_window()
+    driver = webdriver.Chrome(options=options)
 
     yield driver
     driver.quit()

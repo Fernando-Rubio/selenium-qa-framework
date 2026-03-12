@@ -21,6 +21,7 @@ def driver():
     options.add_argument("--disable-features=PasswordCheck")
 
     driver = webdriver.Chrome(options=options)
+    driver.set_window_size(1920,1080)
 
     yield driver
     driver.quit()

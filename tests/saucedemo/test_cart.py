@@ -7,7 +7,7 @@ def test_add_to_cart(driver):
     login_page.login("standard_user", "secret_sauce")
 
     inventory_page = InventoryPage(driver)
-    inventory_page.add_to_cart()
+    inventory_page.add_backpack()
     inventory_page.open_cart()
 
     assert "cart" in driver.current_url

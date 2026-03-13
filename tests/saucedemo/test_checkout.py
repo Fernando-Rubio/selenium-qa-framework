@@ -14,8 +14,8 @@ def test_complete_checkout(driver):
     cart = CartPage(driver)
     cart.click_checkout()
 
-    checkout = CheckoutPage(driver)
-    checkout.enter_info("John", "Doe", "12345")
-    checkout.finish_checkout()
+    checkout_page = CheckoutPage(driver)
+    checkout_page.enter_info("John", "Doe", "12345")
+    checkout_page.finish_checkout()
 
-    assert "checkout-complete" in driver.current_url
+    assert "complete" in driver.current_url

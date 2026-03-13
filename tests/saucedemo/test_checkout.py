@@ -8,6 +8,7 @@ def test_complete_checkout(driver):
     login_page = LoginPage(driver)
     login_page.open()
     login_page.login("standard_user", "secret_sauce")
+
     inventory = InventoryPage(driver)
     inventory.add_backpack()
     inventory.open_cart()

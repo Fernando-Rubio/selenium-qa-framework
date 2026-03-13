@@ -11,7 +11,7 @@ class CheckoutPage(BasePage):
     FINISH_BUTTON = (By.ID, "finish")
     COMPLETE_HEADER = (By.CLASS_NAME, "complete-header")
 
-    def enter_info(self, first, last, zip_code):
+    def enter_info(self, first, last, postal):
         
             first_input = self.wait.until(EC.element_to_be_clickable(self.FIRST_NAME))
             first_input.clear()
@@ -23,7 +23,7 @@ class CheckoutPage(BasePage):
 
             postal_input = self.wait.until(EC.element_to_be_clickable(self.POSTAL_CODE))
             postal_input.clear()
-            postal_input.send_keys(zip_code)
+            postal_input.send_keys(postal)
 
             continue_btn = self.wait.until(EC.element_to_be_clickable(self.CONTINUE_BUTTON))
             continue_btn.click()

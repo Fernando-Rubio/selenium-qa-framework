@@ -10,4 +10,3 @@ class InventoryPage(BasePage):
         self.click(self.ADD_BACKPACK)
     def open_cart(self):
         self.click(self.CART_ICON)
-        self.wait.until(EC.url_contains("cart"))

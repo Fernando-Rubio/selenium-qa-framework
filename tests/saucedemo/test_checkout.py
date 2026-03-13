@@ -2,6 +2,7 @@ from pages.saucedemo.login_page import LoginPage
 from pages.saucedemo.inventory_page import InventoryPage
 from pages.saucedemo.cart_page import CartPage
 from pages.saucedemo.checkout_page import CheckoutPage
+import pytest
 
 def test_complete_checkout(driver):
     login_page = LoginPage(driver)

@@ -20,7 +20,5 @@ class LoginPage(BasePage):
         self.type(self.PASSWORD, password)
         self.click(self.LOGIN_BUTTON)
 
-        self.wait.until(EC.url_contains("inventory"))
-
     def get_error_message(self):
         return self.get_text(self.ERROR)

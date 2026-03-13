@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 
 class InventoryPage(BasePage):
@@ -9,3 +10,4 @@ class InventoryPage(BasePage):
         self.click(self.ADD_BACKPACK)
     def open_cart(self):
         self.click(self.CART_ICON)
+        self.wait.until(EC.url_contains("cart"))

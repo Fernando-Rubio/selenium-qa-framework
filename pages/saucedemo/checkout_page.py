@@ -27,3 +27,4 @@ class CheckoutPage(BasePage):
     
     def finish_checkout(self):
         self.click(self.FINISH_BUTTON)
+        self.wait.until(EC.url_contains("complete"))

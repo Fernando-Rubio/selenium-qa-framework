@@ -2,6 +2,7 @@ from pages.saucedemo.login_page import LoginPage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.saucedemo.inventory_page import InventoryPage
+from pages.saucedemo.cart_page import CartPage
 
 def test_add_to_cart(driver):
     login_page = LoginPage(driver)
@@ -12,6 +13,4 @@ def test_add_to_cart(driver):
     inventory_page.add_backpack()
     inventory_page.open_cart()
 
-    WebDriverWait(driver,15).until(EC.url_contains("cart"))
-
-    assert "cart" in driver.current_url
+    cart = CartPage(driver)

@@ -18,7 +18,7 @@ class CheckoutPage(BasePage):
         self.click(self.CONTINUE_BUTTON)
 
     def finish_checkout(self):
-        self.click(self.FINISH_BUTTON)
-        WebDriverWait(self.driver, 15).until(lambda driver: "complete" in driver.current_url or driver.find_elements(*self.COMPLETE_HEADER))
+        self.wait.until(EC.url_contains("checkout-step-two"))
+        self.wait.until(EC.element_to_be_clickable(self.FINISH_BUTTON)).click()
+        self.wait.until(EC.url_contains("complete"))
         self.wait.until(EC.visibility_of_element_located(self.COMPLETE_HEADER))
-      

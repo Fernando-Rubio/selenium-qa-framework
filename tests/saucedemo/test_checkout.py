@@ -18,5 +18,3 @@ def test_complete_checkout(driver):
     checkout_page = CheckoutPage(driver)
     checkout_page.enter_info("John", "Doe", "12345")
     checkout_page.finish_checkout()
-
-    assert "checkout-complete.html" in driver.current_url

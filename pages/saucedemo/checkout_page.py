@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
-from selenium.common.exceptions import TimeoutException
 
 class CheckoutPage(BasePage):
     FIRST_NAME = (By.ID, "first-name")
@@ -12,15 +12,13 @@ class CheckoutPage(BasePage):
     COMPLETE_HEADER = (By.CLASS_NAME, "complete-header")
 
     def enter_info(self, first, last, zip_code):
-          self.wait.until(EC.visibility_of_element_located(self.FIRST_NAME)).send_keys(first)
-          self.wait.until(EC.visibility_of_element_located(self.LAST_NAME)).send_keys(last)
-          self.wait.until(EC.visibility_of_element_located(self.POSTAL_CODE)).send_keys(zip_code)
-          self.wait.until(EC.visibility_of_element_located(self.CONTINUE_BUTTON)).click()
-    
+        self.type(self.FIRST_NAME,first)
+        self.type(self.LAST_NAME,last)
+        self.type(self.POSTAL_CODE, zip_code)
+        self.click(self.CONTINUE_BUTTON)
 
     def finish_checkout(self):
-            
-            finish_btn = self.wait.until(EC.element_to_be_clickable(self.FINISH_BUTTON))
-            finish_btn.click()
-            self.wait.until(EC.url_contains("complete"))
-            self.wait.until(EC.visibility_of_element_located(self.COMPLETE_HEADER))
+        self.click(self.FINISH_BUTTON)
+        WebDriverWait(self.driver, 15).until(lambda driver: "complete" in driver.current_url or driver.find_elements(*self.COMPLETE_HEADER))
+        self.wait.until(EC.visibility_of_element_located(self.COMPLETE_HEADER))
+      

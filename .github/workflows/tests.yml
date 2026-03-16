@@ -2,29 +2,33 @@ name: Selenium Test Pipeline
 
 on:
    push:
+      branches: [ main ]
    pull_request:
+      branches: [ main ]
 
 jobs:
    run_tests:
-
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/Checkout@v3
 
       - name: Setup Python
         uses: actions/Setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: 3.11
       
       - name: Install Chrome
         uses: browser-actions/setup-chrome@v1
 
       - name: Install Dependencies
         run: | 
-           pip install -r requirements.txt 
+           python -m pip install --upgrade pip
+           pip install -r requirements.txt
 
-      - name: Run Run Tests
+      - name: Run Tests
+        env:
+          DISPLAY: :99
         run: |
-           pytest -v 
+           pytest -v --maxfail=1 --disable-warnings --html=report.html

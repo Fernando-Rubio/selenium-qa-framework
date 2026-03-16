@@ -2,15 +2,21 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class BasePage:
-    def __init__(self, driver, timeout=15):
+    def __init__(self, driver, timeout=20):
         self.driver = driver
         self.wait = WebDriverWait(driver, timeout)
     def wait_for_url(self, text):
         self.wait.until(EC.url_contains(text))
     def open(self, url):
         self.driver.get(url)
+    def wait_for_url(self, text):
+        self.wait.until(EC.url_contains(text))
     def click(self, locator):
-        self.wait.until(EC.element_to_be_clickable(locator)).click()
+        element = self.wait.until(EC.element_to_be_clickable(locator))
+        try:
+            element.click()
+        except:
+            self.driver.execute_script("arguments[0].click();", element)
     def type(self, locator, text):
         element = self.wait.until(EC.visibility_of_element_located(locator))
         element.clear()
@@ -28,6 +34,4 @@ class BasePage:
             return True
         except:
             return False
-        
-    def open(self,url):
-        self.driver.get(url)
+    

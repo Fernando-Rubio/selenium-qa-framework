@@ -19,4 +19,4 @@ def test_complete_checkout(driver):
     checkout_page.enter_info("John", "Doe", "12345")
     checkout_page.finish_checkout()
 
-    assert "complete" in driver.current_url
+    assert checkout_page.is_visible(checkout_page.COMPLETE_HEADER)

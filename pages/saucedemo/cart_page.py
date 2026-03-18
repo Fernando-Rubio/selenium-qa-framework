@@ -10,7 +10,7 @@ class CartPage(BasePage):
     def click_checkout(self):
         checkout_btn = self.wait.until(EC.element_to_be_clickable(self.CHECKOUT_BUTTON))
         checkout_btn.click()
-        self.wait.until(EC.url_contains("checkout-step-one"))
+        self.wait.until(EC.url_contains("checkout"))
 
     def remove_backpack(self):
         self.click(self.REMOVE_BACKPACK)

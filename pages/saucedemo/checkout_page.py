@@ -19,7 +19,7 @@ class CheckoutPage(BasePage):
         self.click(self.CONTINUE_BUTTON)
 
     def finish_checkout(self):
-        self.wait.until(EC.url_contains("checkout"))
+        self.wait.until(EC.visibility_of_element_located(self.FINISH_BUTTON))
         self.click(self.FINISH_BUTTON)
         self.wait.until(EC.url_contains("complete"))
         self.wait.until(EC.visibility_of_element_located(self.COMPLETE_HEADER))

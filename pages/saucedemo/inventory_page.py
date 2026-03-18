@@ -12,7 +12,5 @@ class InventoryPage(BasePage):
     def add_bike_light(self):
         self.click(self.ADD_BIKE_LIGHT)
     def open_cart(self):
-        cart_icon = self.wait.until(EC.visibility_of_element_located(self.CART_ICON))
-        cart_icon = self.wait.until(EC.element_to_be_clickable(self.CART_ICON))
-        self.driver.execute_script("arguments[0].click();", cart_icon)
+        self.click(self.CART_ICON)
         self.wait.until(EC.url_contains("cart"))

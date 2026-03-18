@@ -11,15 +11,16 @@ class CheckoutPage(BasePage):
     FINISH_BUTTON = (By.ID, "finish")
     COMPLETE_HEADER = (By.CLASS_NAME, "complete-header")
 
-    def enter_info(self, first, last, zip_code):
+    def enter_info(self, first, last, postal):
         self.type(self.FIRST_NAME,first)
         self.type(self.LAST_NAME,last)
-        self.type(self.POSTAL_CODE, zip_code)
+        self.type(self.POSTAL_CODE, postal)
 
         self.click(self.CONTINUE_BUTTON)
 
+        self.wait.until(EC.url_contains("checkout-step-two"))
+
     def finish_checkout(self):
-        self.wait.until(EC.visibility_of_element_located(self.FINISH_BUTTON))
         self.click(self.FINISH_BUTTON)
         self.wait.until(EC.url_contains("complete"))
         self.wait.until(EC.visibility_of_element_located(self.COMPLETE_HEADER))

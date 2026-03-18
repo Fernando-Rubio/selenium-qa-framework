@@ -1,16 +1,17 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 class BasePage:
     def __init__(self, driver, timeout=20):
         self.driver = driver
         self.wait = WebDriverWait(driver, timeout)
-    def wait_for_url(self, text):
-        self.wait.until(EC.url_contains(text))
+    def wait_for_url(self, url_fragment):
+        self.wait.until(EC.url_contains(url_fragment))
     def open(self, url):
         self.driver.get(url)
-    def wait_for_url(self, text):
-        self.wait.until(EC.url_contains(text))
+    def wait_for_element(self, by, locator):
+        return self.wait.until(EC.visibility_of_element_located((by, locator)))
     def click(self, locator):
         element = self.wait.until(EC.element_to_be_clickable(locator))
         try:

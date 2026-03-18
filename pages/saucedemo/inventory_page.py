@@ -13,4 +13,4 @@ class InventoryPage(BasePage):
         self.click(self.ADD_BIKE_LIGHT)
     def open_cart(self):
         self.click(self.CART_ICON)
-        self.wait.until(EC.url_contains("cart"))
+        self.wait.until(EC.visibility_of_element_located((By.ID, "checkout")))

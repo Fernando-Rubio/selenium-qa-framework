@@ -10,8 +10,10 @@ class BasePage:
         self.wait.until(EC.url_contains(url_fragment))
     def open(self, url):
         self.driver.get(url)
-    def wait_for_element(self, by, locator):
-        return self.wait.until(EC.visibility_of_element_located((by, locator)))
+    def wait_for_element(self, locator):
+        return self.wait.until(EC.visibility_of_element_located(locator))
+    def wait_for_clickable(self, locator):
+        return self.wait.until(EC.element_to_be_clickable(locator))
     def click(self, locator):
         element = self.wait.until(EC.element_to_be_clickable(locator))
         try:

@@ -16,6 +16,7 @@ def test_complete_checkout(driver):
     cart_page.click_checkout()
 
     checkout_page = CheckoutPage(driver)
+    print(driver.current_url)
     checkout_page.enter_info("John", "Doe", "12345")
     checkout_page.finish_checkout()
 

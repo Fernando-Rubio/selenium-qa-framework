@@ -9,8 +9,10 @@ class InventoryPage(BasePage):
 
     def add_backpack(self):
         self.click(self.ADD_BACKPACK)
+
     def add_bike_light(self):
         self.click(self.ADD_BIKE_LIGHT)
+        
     def open_cart(self):
         self.click(self.CART_ICON)
         self.wait.until(EC.url_contains("cart"))

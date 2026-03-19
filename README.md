@@ -1,14 +1,21 @@
 # Selenium + Pytest + Requests Automation Framework
 
+[![Selenium Test Pipeline](https://github.com/Fernando-Rubio/selenium-qa-framework/actions/workflows/tests.yml/badge.svg)](https://github.com/Fernando-Rubio/selenium-qa-framework/actions/workflows/tests.yml)
+
+A scalable Selenium automation framework demostrating Page Object Model design, Pytest execution, and CI integration using GitHub Actions.
+
 ## Project Overview
 
 This project is a scalable UI and API automation framework built using Selenium, Pytest, and Python.
 
 The framework follows the Page Object Model (POM) design pattern to seperate test logic from page elements, improving maintainability and readability.
 
-The framework automates core functionality across multiple test applications such as: 
+The framework automates core functionality test within: 
 
 - SauceDemo
+
+And addtional tests in: 
+
 - OrangeHRM
 - DemoQA
 - HerokuApp
@@ -19,9 +26,9 @@ The goal of this project is to demonstrate:
 - Reusable test components
 - Reliable element handling using explicit waits
 - Positive and negative test coverage 
-- API testing integration
+- UI and API testing integration
 - Logging and failure debugging tools
-
+- CI-compatible test execution 
 ---
 
 ## Framework Features 
@@ -35,6 +42,16 @@ The goal of this project is to demonstrate:
 - HTML test reporting using pytest-html
 - API testing using Python Requests
 - Enviorment-based configuration
+- Continuous Intergration using GitHub Actions (CI pipeline)
+
+---
+
+## Core Automation Utilities 
+- Element click handling 
+- Input field typing
+- Explicit wait handling
+- URL synchronization
+- Page navigation helpers
 
 --- 
 
@@ -47,9 +64,11 @@ The goal of this project is to demonstrate:
 - Page Object Model (POM)
 - Pytest Parametrize (Data-Driven Testing)
 - Git & GitHub
+- GitHub Actions (CI/CD)
  - pytest-html (Test Reporting)
  - Python logging module
- Addtional:
+ 
+ Addtional Tools & Concepts:
  - Explicit Waits (WebDriverWait, ExpectedConditions)
  - JSON Validation
  - REST API Testing
@@ -59,6 +78,18 @@ The goal of this project is to demonstrate:
  - Structured logging
 
 ---
+
+## CI Pipeline 
+
+This project uses GitHub Actions to automatically execute the test suite on every push.
+
+Pipeline workflow includes:
+
+- Environment setup
+- Dependency installation
+- Headless browser execution
+- Automated Pytest test runs
+- Failure detection and reporting
 
 ## Example Automated Tests
 

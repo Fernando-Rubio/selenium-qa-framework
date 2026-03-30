@@ -15,4 +15,4 @@ class InventoryPage(BasePage):
         
     def open_cart(self):
         self.click(self.CART_ICON)
-        self.wait.until(EC.visibility_of_element_located((By.ID, "checkout")))
+        self.wait_for_element((By.ID, "checkout"))

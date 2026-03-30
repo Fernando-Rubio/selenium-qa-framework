@@ -1,6 +1,7 @@
 import pytest
 from pages.saucedemo.login_page import LoginPage
 from pages.saucedemo.inventory_page import InventoryPage
+from pages.saucedemo.cart_page import CartPage
 
 def test_cart_persistence(driver):
     
@@ -11,10 +12,10 @@ def test_cart_persistence(driver):
     inventory_page = InventoryPage(driver)
     inventory_page.add_backpack()
 
-    inventory_page.open_cart()
-
+    cart_page = inventory_page.open_cart()
+    
     driver.back()
 
-    inventory_page.open_cart()
+    cart_page = inventory_page.open_cart()
 
     assert "cart" in driver.current_url

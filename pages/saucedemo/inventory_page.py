@@ -6,6 +6,7 @@ class InventoryPage(BasePage):
     ADD_BACKPACK = (By.ID, "add-to-cart-sauce-labs-backpack")
     ADD_BIKE_LIGHT = (By.ID, "add-to-cart-sauce-labs-bike-light")
     CART_ICON = (By.CLASS_NAME, "shopping_cart_link")
+    CART_LIST = (By.CLASS_NAME, "cart_list")
 
     def add_backpack(self):
         self.click(self.ADD_BACKPACK)
@@ -15,4 +16,4 @@ class InventoryPage(BasePage):
         
     def open_cart(self):
         self.click(self.CART_ICON)
-        self.wait_for_element((By.CLASS_NAME, "cart_list"))
+        self.wait_for_element(self.CART_LIST)

@@ -19,6 +19,7 @@ def test_complete_checkout(driver):
     cart_page.click_checkout()
 
     checkout_page.enter_info("John", "Doe", "12345")
+
     checkout_page.finish_checkout()
 
     assert checkout_page.wait_for_element(checkout_page.COMPLETE_HEADER)

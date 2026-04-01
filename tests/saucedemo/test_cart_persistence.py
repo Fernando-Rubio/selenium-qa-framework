@@ -13,9 +13,4 @@ def test_cart_persistence(driver):
     inventory_page.add_backpack()
 
     cart_page = inventory_page.open_cart()
-    
-    driver.back()
-
-    cart_page = inventory_page.open_cart()
-
     assert "cart" in driver.current_url

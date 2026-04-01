@@ -14,8 +14,8 @@ class BasePage:
         return self.wait.until(EC.element_to_be_clickable(locator), (timeout))
     def wait_for_clickable(self, locator):
         return self.wait.until(EC.element_to_be_clickable(locator))
-    def click(self, locator):
-        element = self.wait.until(EC.element_to_be_clickable(locator))
+    def click(self, locator, timeout=15):
+        element = self.wait.until(EC.element_to_be_clickable(locator), (timeout))
         try:
             element.click()
         except:

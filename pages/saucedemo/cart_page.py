@@ -9,8 +9,7 @@ class CartPage(BasePage):
     REMOVE_BACKPACK = (By.ID, "remove-sauce-labs-backpack")
 
     def click_checkout(self):
-        self.click(self.CHECKOUT_BUTTON)
-        return CheckoutPage(self.driver)
+        self.wait_for_element(self.CHECKOUT_BUTTON).click()
     
     def remove_backpack(self):
         self.click(self.REMOVE_BACKPACK)

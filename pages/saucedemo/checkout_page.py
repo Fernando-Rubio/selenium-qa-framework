@@ -19,10 +19,9 @@ class CheckoutPage(BasePage):
         self.type(self.POSTAL_CODE, postal)
         
         self.click(self.CONTINUE_BUTTON)
-        self.wait.until(EC.url_contains("checkout-step-two.html"))
+        self.wait_for_url("checkout-step-two.html")
         self.wait_for_element(self.FINISH_BUTTON)
 
     def finish_checkout(self):
-        self.wait.until(EC.element_to_be_clickable(self.FINISH_BUTTON))
-        self.click(self.FINISH_BUTTON)
-        self.wait.until(EC.visibility_of_element_located(self.COMPLETE_HEADER))
+        self.wait_for_element(self.FINISH_BUTTON).click()
+        self.wait_for_element(self.COMPLETE_HEADER)

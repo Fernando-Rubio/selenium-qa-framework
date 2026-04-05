@@ -17,5 +17,5 @@ class InventoryPage(BasePage):
         self.click(self.ADD_BIKE_LIGHT)
         
     def open_cart(self):
-        self.wait_for_element(self.CART_BUTTON).click()
-        return CartPage(self.driver)
+       self.click(self.CART_ICON)
+       self.wait_for_element((By.CLASS_NAME,"cart_list"))

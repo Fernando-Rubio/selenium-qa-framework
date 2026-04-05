@@ -24,7 +24,7 @@ class BasePage:
         try:
             element.click()
         except:
-            self.driver.execute_script("arguments[0].click;", element)
+            self.driver.execute_script("arguments[0].click();", element)
 
     def type(self, locator, text):
         element = self.wait_for_element(locator)
@@ -35,12 +35,12 @@ class BasePage:
         return self.wait_for_element(locator).text
    
     def scroll_to_element(self, locator):
-        element = self.driver.find_element(*locator)
+        element = self.wait_for_element(*locator)
         self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
 
     def is_visible(self, locator):
         try:
-            WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(locator))
+            self.wait_for_element(locator)
             return True
         except:
             return False

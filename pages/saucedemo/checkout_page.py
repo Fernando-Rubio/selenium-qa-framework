@@ -12,12 +12,11 @@ class CheckoutPage(BasePage):
     COMPLETE_HEADER = (By.CLASS_NAME, "complete-header")
 
     def enter_info(self, first, last, postal):
-        self.wait_for_element(self.FIRST_NAME).send_keys(first)
-        self.wait_for_element(self.LAST_NAME).send_keys(last)
-        self.wait_for_element(self.POSTAL_CODE).send_keys(postal)
-        self.wait_for_clickable(self.CONTINUE_BUTTON).click()
-        print("Current URL before wait:", self.driver.current_url)
-        self.wait_for_url("/checkout-step-two.html")
+        self.type(self.FIRST_NAME, first)
+        self.type(self.LAST_NAME, last)
+        self.type(self.POSTAL_CODE, postal)
+        self.click(self.CONTINUE_BUTTON)
+        self.wait_for_url("checkout-step-two")
 
     def finish_checkout(self):
         self.wait_for_element(self.FINISH_BUTTON).click()

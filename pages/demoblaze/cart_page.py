@@ -9,5 +9,5 @@ class DemoBlazeCartPage(BasePage):
 
     def add_first_product_to_cart(self):
         self.click(self.FIRST_PRODUCT)
-        self.wait.until(EC.visibility_of_element_located(self.ADD_TO_CART))
+        self.wait_for_element(self.ADD_TO_CART)
         self.click(self.ADD_TO_CART)

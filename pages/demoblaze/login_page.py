@@ -11,14 +11,13 @@ class DemoBlazeLoginPage(BasePage):
 
     def open(self):
         self.driver.get("https://www.demoblaze.com/")
-        self.wait.until(EC.visibility_of_element_located(self.LOGIN_LINK))
+        self.wait_for_element(self.LOGIN_LINK)
 
     def open_login_modal(self):
-        self.wait.until(EC.element_to_be_clickable(self.LOGIN_LINK)).click()
+        self.click(self.LOGIN_LINK)
+        self.wait_for_element(self.USERNAME)
 
     def login(self, username, password):
-        self.click(self.LOGIN_BUTTON)
-        self.wait.until(EC.visibility_of_element_located(self.USERNAME))
         self.type(self.USERNAME, username)
         self.type(self.PASSWORD, password)
         self.click(self.LOGIN_BUTTON) 

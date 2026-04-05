@@ -13,7 +13,7 @@ class BasePage:
         self.driver.get(url)
     def wait_for_element(self, locator, timeout=20):
         wait = WebDriverWait(self.driver, timeout)
-        return wait.until(EC.element_to_be_clickable(locator))
+        return wait.until(EC.visibility_of_element_located(locator))
     def wait_for_element_visible(self, locator, timeout=20):
         wait = WebDriverWait(self.driver, timeout)
         return wait.until(EC.visibility_of_element_located(locator))

@@ -9,12 +9,13 @@ class CartPage(BasePage):
     CHECKOUT_BUTTON = (By.ID, "checkout")
     REMOVE_BACKPACK = (By.ID, "remove-sauce-labs-backpack")
 
-    def open_cart(self):
+    def wait_for_cart_page(self):
         self.wait_for_url("cart")
         self.wait_for_element(self.CART_LIST)
 
     def click_checkout(self):
-        self.wait_for_element(self.CHECKOUT_BUTTON).click()
+        self.wait_for_cart_page()
+        self.click(self.CHECKOUT_BUTTON)
     
     def remove_backpack(self):
         self.click(self.REMOVE_BACKPACK)

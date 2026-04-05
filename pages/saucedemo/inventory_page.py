@@ -18,4 +18,4 @@ class InventoryPage(BasePage):
         
     def open_cart(self):
        self.click(self.CART_ICON)
-       self.wait_for_element((By.CLASS_NAME,"cart_list"))
+       self.wait_for_url("cart.html")

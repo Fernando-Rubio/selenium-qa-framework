@@ -3,9 +3,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class BasePage:
-    def __init__(self,driver, timeout=20):
-        self.driver = driver
-        self.wait - WebDriverWait(driver, timeout)
+    def __init__(self, driver, timeout=20):
+       self.driver = driver
+       self.wait = WebDriverWait(driver, timeout)
 
     def open(self, url):
         self.driver.get(url)

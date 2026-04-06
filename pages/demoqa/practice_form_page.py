@@ -22,7 +22,7 @@ class PracticeFormPage(BasePage):
 
     def submit_form(self):
         self.scroll_to_element(self.SUBMIT)
-        element = self.driver.find_element(*self.SUBMIT)
+        element = self.wait_for_element(self.SUBMIT)
         self.driver.execute_script("arguments[0].click();", element)
 
     def is_modal_displayed(self):

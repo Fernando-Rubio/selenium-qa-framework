@@ -16,5 +16,5 @@ class InventoryPage(BasePage):
     def open_cart(self):
        self.scroll_to_element(self.CART_BUTTON)
        self.click(self.CART_BUTTON)
-       self.wait_for_element((By.CLASS_NAME, "cart_list"), timeout=20)
+       self.wait_for_element((By.CLASS_NAME, "cart_list"))
        return CartPage(self.driver)

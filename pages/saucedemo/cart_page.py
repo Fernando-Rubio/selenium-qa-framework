@@ -1,6 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from pages.saucedemo.checkout_page import CheckoutPage
 
@@ -14,8 +12,10 @@ class CartPage(BasePage):
         return self.is_visible(self.CART_LIST)
 
     def click_checkout(self):
-        self.wait_for_cart_page()
-        self.click(self.CHECKOUT_BUTTON)
+        button = self.wait_for_clickable(self.CHECKOUT_BUTTON)
+        self.driver.execute_script("arguments[0].click();", button)
+        self.wait_for_url("checkout-step-one.html")
+        return CheckoutPage(self.driver)
     
     def remove_backpack(self):
         self.click(self.REMOVE_BACKPACK)

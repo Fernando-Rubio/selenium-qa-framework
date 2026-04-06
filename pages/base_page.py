@@ -36,7 +36,7 @@ class BasePage:
    
     def scroll_to_element(self, locator):
         element = self.wait_for_element(locator)
-        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
 
     def is_visible(self, locator):
         try:

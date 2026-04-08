@@ -14,19 +14,23 @@ def driver():
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--window-size=1920,1080")
-
-    service = Service(ChromeDriverManager().install())
-
-    options.add_experimental_option("prefs", {"credentials_enable_service": False, "profile.password_manager_enabled": False})
-
     options.add_argument("--disable-notifications")
     options.add_argument("--disable-infobars")
-    options.add_argument("--disable-save-password-bubble")
-    options.add_argument("--disable-features=PasswordLeakDetection")
-    options.add_argument("--disable-features=PasswordCheck")
 
+    prefs = { 
+        "credentials_enable_service": False, 
+        "profile.password_manager_enabled": False,
+        "profile.password_manager_leak_detection": False, 
+        "autofill.profile_enabled": False,
+        "autofill.credit_card_enabled": False
+    }
+    options.add_experimental_option("prefs", prefs)
+
+    options.add_argument("--disable-features=PasswordLeakDetection,PasswordCheck,PasswordManagerOnboarding,AutofillServerCommunication,OptimizationHints")
+
+    service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
-    driver.set_window_size(1920,1080)
+    driver.set_window_size(1920, 1080)
 
     yield driver
     driver.quit()

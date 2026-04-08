@@ -20,11 +20,7 @@ class BasePage:
         return self.wait.until(EC.element_to_be_clickable(locator))
     
     def click(self, locator):
-        element = self.wait_for_clickable(locator)
-        try:
-            element.click()
-        except:
-            self.driver.execute_script("arguments[0].click();", element)
+        self.wait_for_clickable(locator).click()
 
     def type(self, locator, text):
         element = self.wait_for_element(locator)
